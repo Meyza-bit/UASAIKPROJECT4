@@ -6,4 +6,12 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* Palet putih + navy (sesuai Figma) */
+    --color-primary: #1B3B5E;   /* navy: tombol, footer, brand */
+    --color-accent:  #2563EB;   /* biru: link & highlight */
+    --color-ink:     #1E293B;   /* teks judul */
+    --color-muted:   #64748B;   /* teks isi/abu */
+    --color-surface: #F8FAFC;   /* background section terang */
+    --color-line:    #E2E8F0;   /* garis tepi */
 }
