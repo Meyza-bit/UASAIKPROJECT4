@@ -1,25 +1,36 @@
-<header class="bg-white border-b border-line sticky top-0 z-10">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
-        <div class="flex items-center gap-3">
-            <img src="/logo.png" alt="Logo" class="w-10 h-10 object-contain"
-                 onerror="this.style.display='none'">
+<header class="border-b border-gray-200 bg-white sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        
+        <!-- Sisi Kiri: Logo & Informasi Akademik -->
+        <div class="flex items-center gap-4">
+            <!-- Logo Universitas Muhammadiyah Pontianak -->
+            <img src="{{ asset('images/logo-ump.jpeg') }}" 
+             alt="Logo Universitas Muhammadiyah Pontianak" 
+             class="w-14 h-14 object-contain shrink-0">
+            
             <div>
-                <h1 class="text-base font-semibold text-primary leading-tight">Tuntunan Tata Cara Sholat</h1>
-                <p class="text-[11px] text-muted leading-snug mt-0.5">
-                    Nama: Kelompok 3 Sistem Informasi 06A<br>
-                    Mata Kuliah: AIK 4 · Dosen: Dedy Susanto, S.Pd., M.M
-                </p>
+                <h1 class="text-2xl font-bold text-blue-950 tracking-tight">Tuntunan Tata Cara Sholat</h1>
+                <div class="text-xs text-gray-500 mt-1 leading-relaxed">
+                    <p>Nama: Kelompok 3 Sistem Informasi 06A</p>
+                    <p>Mata Kuliah: AIK 4</p>
+                    <p>Dosen: Dedy Susanto S.pd., M.M</p>
+                </div>
             </div>
         </div>
-        <div class="flex items-center gap-5">
-            <nav class="hidden md:flex items-center gap-4 text-sm">
-                <a href="/" class="text-accent font-medium">Beranda</a>
-                <a href="#" class="text-muted hover:text-ink">Tuntunan Sholat</a>
+
+        <!-- Sisi Kanan: Navigasi & Switcher Kategori -->
+        <div class="flex items-center gap-8 w-full md:w-auto justify-between md:justify-end">
+            <nav class="flex gap-6 text-sm font-semibold">
+                <a href="/beranda" class="text-blue-900 border-b-2 border-blue-900 pb-1">Beranda</a>
+                <a href="/tuntunan" class="text-gray-600 hover:text-blue-900 transition">Tuntunan Sholat</a>
             </nav>
-            <div class="flex items-center rounded-full bg-surface border border-line p-0.5 text-xs">
-                <span class="px-3 py-1 rounded-full bg-primary text-white">Dewasa</span>
-                <span class="px-3 py-1 rounded-full text-muted">Anak-anak</span>
+            
+            <!-- Toggle Dewasa / Anak-anak -->
+            <div class="bg-gray-100 p-1 rounded-full flex items-center text-xs font-semibold">
+                <button class="bg-blue-950 text-white px-4 py-1.5 rounded-full shadow-sm cursor-pointer">Dewasa</button>
+                <button class="text-gray-500 px-4 py-1.5 rounded-full hover:text-gray-950 transition cursor-pointer">Anak-anak</button>
             </div>
         </div>
+
     </div>
 </header>

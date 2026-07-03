@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title desc">
+  <title id="title">Logo Universitas Muhammadiyah Pontianak</title>
+  <desc id="desc">Logo sederhana untuk header aplikasi Tuntunan Tata Cara Sholat.</desc>
+  <rect width="120" height="120" rx="24" fill="#ffffff"/>
+  <circle cx="60" cy="60" r="50" fill="#0b2f6b"/>
+  <circle cx="60" cy="60" r="42" fill="#f8d447"/>
+  <circle cx="60" cy="60" r="34" fill="#ffffff"/>
+  <path d="M60 24l7.6 20.6 21.9-1.1-17.1 13.7 7.8 20.5L60 65.5 39.8 77.7l7.8-20.5-17.1-13.7 21.9 1.1L60 24z" fill="#f8d447"/>
+  <circle cx="60" cy="60" r="18" fill="#0b2f6b"/>
+  <text x="60" y="58" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#ffffff">UMP</text>
+  <text x="60" y="74" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="700" fill="#f8d447">AIK 4</text>
+</svg>
