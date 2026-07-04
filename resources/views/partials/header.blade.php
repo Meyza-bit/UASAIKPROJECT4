@@ -1,41 +1,56 @@
-<header class="bg-white border-b border-line sticky top-0 z-10">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
-        <div class="flex items-center gap-3">
-            <img src="/logo.png" alt="Logo" class="w-10 h-10 object-contain"
-                 onerror="this.style.display='none'">
-            <div>
-                <h1 class="text-base font-semibold text-primary leading-tight">Tuntunan Tata Cara Sholat</h1>
-                <p class="text-[11px] text-muted leading-snug mt-0.5">
-                    Nama: Kelompok 3 Sistem Informasi 06A<br>
-                    Mata Kuliah: AIK 4 · Dosen: Dedy Susanto, S.Pd., M.M
-                </p>
+@php
+    $activeMode = request('mode', 'dewasa');
+    $activeStepId = request()->route('id') ?? 1;
+@endphp
+
+<header class="sticky top-0 z-50 border-b border-gray-200 bg-white">
+    <div class="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between">
+        <div class="flex min-w-0 items-start gap-3 sm:items-center sm:gap-4">
+            <img
+                src="{{ asset('images/logo-ump.jpeg') }}"
+                alt="Logo Universitas Muhammadiyah Pontianak"
+                class="h-12 w-12 shrink-0 object-contain sm:h-14 sm:w-14"
+            >
+
+            <div class="min-w-0">
+                <h1 class="text-lg font-bold leading-tight text-blue-950 sm:text-2xl">
+                    Tuntunan Tata Cara Sholat
+                </h1>
+                <div class="mt-1 text-xs leading-relaxed text-gray-500">
+                    <p>Nama: Kelompok 3 Sistem Informasi 06A</p>
+                    <p>Mata Kuliah: AIK 4</p>
+                    <p>Dosen: Dedy Susanto S.pd., M.M</p>
+                </div>
             </div>
         </div>
-        <div class="flex items-center gap-5">
-            <nav class="hidden md:flex items-center gap-6 text-sm self-stretch">
-                <!-- Menu Beranda -->
-                <a href="/" class="flex items-center h-full border-b-2 {{ Request::is('/') ? 'border-primary text-primary font-semibold' : 'border-transparent text-muted hover:text-ink' }} transition-all duration-200">
+
+        <div class="flex w-full flex-col gap-3 sm:flex-row sm:items-center sm:justify-between lg:w-auto lg:justify-end lg:gap-6">
+            <nav class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-semibold">
+                <a
+                    href="{{ url('/') }}"
+                    class="border-b-2 pb-1 transition {{ request()->routeIs('beranda') ? 'border-blue-950 text-blue-950' : 'border-transparent text-gray-600 hover:text-blue-950' }}"
+                >
                     Beranda
                 </a>
-                
-                <!-- Menu Tuntunan Sholat dengan Garis Bawah Aktif -->
-                <a href="{{ route('sholat.step', ['id' => $currentStep['id'] ?? 1, 'mode' => $mode ?? 'dewasa']) }}" 
-                class="flex items-center h-full border-b-2 {{ Request::is('tuntunan-sholat*') ? 'border-primary text-primary font-semibold' : 'border-transparent text-muted hover:text-ink' }} transition-all duration-200">
+                <a
+                    href="{{ route('sholat.step', ['id' => $activeStepId, 'mode' => $activeMode]) }}"
+                    class="border-b-2 pb-1 transition {{ request()->is('tuntunan-sholat*') ? 'border-blue-950 text-blue-950' : 'border-transparent text-gray-600 hover:text-blue-950' }}"
+                >
                     Tuntunan Sholat
                 </a>
             </nav>
-                        
-            <!-- Tombol Kategori Mode Aktif (Dinamis via URL Query Parameter) -->
-            <div class="flex items-center rounded-full bg-surface border border-line p-0.5 text-xs">
-                <!-- Tombol Mode Dewasa -->
-                <a href="{{ route('sholat.step', ['id' => $currentStep['id'] ?? 1, 'mode' => 'dewasa']) }}" 
-                   class="px-3 py-1 rounded-full transition {{ ($mode ?? 'dewasa') == 'dewasa' ? 'bg-primary text-white font-medium' : 'text-muted hover:text-ink' }}">
+
+            <div class="flex w-fit items-center rounded-full border border-gray-200 bg-gray-100 p-1 text-xs font-semibold">
+                <a
+                    href="{{ route('sholat.step', ['id' => $activeStepId, 'mode' => 'dewasa']) }}"
+                    class="rounded-full px-4 py-1.5 transition {{ $activeMode === 'dewasa' ? 'bg-blue-950 text-white shadow-sm' : 'text-gray-500 hover:text-gray-950' }}"
+                >
                     Dewasa
                 </a>
-                
-                <!-- Tombol Mode Anak-anak -->
-                <a href="{{ route('sholat.step', ['id' => $currentStep['id'] ?? 1, 'mode' => 'anak-anak']) }}" 
-                   class="px-3 py-1 rounded-full transition {{ ($mode ?? 'dewasa') == 'anak-anak' ? 'bg-primary text-white font-medium' : 'text-muted hover:text-ink' }}">
+                <a
+                    href="{{ route('sholat.step', ['id' => $activeStepId, 'mode' => 'anak-anak']) }}"
+                    class="rounded-full px-4 py-1.5 transition {{ $activeMode === 'anak-anak' ? 'bg-blue-950 text-white shadow-sm' : 'text-gray-500 hover:text-gray-950' }}"
+                >
                     Anak-anak
                 </a>
             </div>

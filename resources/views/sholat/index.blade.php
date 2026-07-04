@@ -145,14 +145,15 @@
 
                 @if($nextStep)
                     <a href="{{ route('sholat.step', ['id' => $nextStep['id'], 'mode' => request('mode')]) }}" 
-                       class="inline-flex items-center space-x-1.5 px-5 py-2 rounded-lg font-semibold text-white {{ $isAnak ? 'bg-amber-500 hover:bg-amber-600' : 'bg-primary hover:opacity-90' }} transition duration-150">
-                        <span>Lanjut: {{ $nextStep['title'] }} →</span>
+                        class="inline-flex items-center space-x-1.5 px-5 py-2 rounded-lg font-semibold text-white {{ $isAnak ? 'bg-amber-500 hover:bg-amber-600' : 'bg-blue-900 hover:bg-blue-950' }} transition duration-150">
+                            <span>Lanjut: {{ $nextStep['title'] }} →</span>
                     </a>
+                
                 @else
                     <a href="/" 
-                        class="inline-flex items-center space-x-1.5 px-5 py-2 rounded-lg font-semibold text-white transition duration-150 
-                        {{ $isAnak ? 'bg-amber-500 hover:bg-amber-600' : 'bg-ink hover:opacity-90' }}">
-                            Selesai & Kembali 🎉
+                    class="inline-flex items-center space-x-1.5 px-5 py-2 rounded-lg font-semibold text-white transition duration-150 
+                    {{ $isAnak ? 'bg-amber-500 hover:bg-amber-600' : 'bg-blue-900 hover:bg-blue-950' }}">
+                        Selesai & Kembali 🎉
                     </a>
                 @endif
             </div>
