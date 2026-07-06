@@ -91,7 +91,7 @@
 
                         
                         <div class="border rounded-xl p-4 flex flex-col justify-between flex-1 
-                            {{ $isAnak ? 'bg-[#fff5f5] border-[#feb2b2]' : 'bg-[#deebff] border-[#b3d4ff]' }}">
+                            {{ $isAnak ? 'bg-[#fff5f5] border-[#feb2b2]' : 'bg-[#deebff] border-[#0d6ce8]' }}">
                             <span class="text-[11px] font-bold uppercase tracking-wider {{ $isAnak ? 'text-red-600 font-black' : 'text-primary' }}">
                                 {{ $isAnak ? 'Lihat Video Contoh 🎬' : 'Video Panduan Gerakan' }}
                             </span>
