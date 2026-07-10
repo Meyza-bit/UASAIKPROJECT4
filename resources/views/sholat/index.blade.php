@@ -87,21 +87,29 @@
                                 </span>
                             </div>
                             
-                            <div class="flex items-center bg-white/80 rounded-lg p-2.5 border border-line w-full min-h-[48px]">
-                                <audio id="audioLafadz" src="{{ asset($currentStep['audio'] ?? '') }}"></audio>
+                            @if(!empty($currentStep['audio']))
+                                <div class="flex items-center bg-white/80 rounded-lg p-2.5 border border-line w-full min-h-12">
+                                    <audio id="audioLafadz" src="{{ asset($currentStep['audio']) }}"></audio>
 
-                                <button id="btnAudio" onclick="toggleAudio()" class="w-8 h-8 rounded-full {{ $isAnak ? 'bg-teal-500' : 'bg-blue-600' }} text-white flex items-center justify-center hover:opacity-90 transition cursor-pointer shrink-0 mr-3">
-                                    <svg id="iconPlay" class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                                    <svg id="iconPause" class="w-4 h-4 fill-current hidden" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-                                </button>
-                                
-                                <div id="audioTrack" class="flex-1 bg-line h-2.5 rounded-full relative mr-3 cursor-pointer">
-                                    <div id="audioProgress" class="{{ $isAnak ? 'bg-teal-500' : 'bg-blue-600' }} h-full w-0 rounded-full transition-all duration-100"></div>
-                                    <div id="audioMarker" class="absolute top-1/2 left-0 w-4 h-4 -translate-x-1/2 -translate-y-1/2 rounded-full {{ $isAnak ? 'bg-teal-500 ring-teal-100' : 'bg-blue-600 ring-blue-100' }} ring-4 shadow-sm transition-all duration-100"></div>
+                                    <button id="btnAudio" onclick="toggleAudio()" class="w-8 h-8 rounded-full {{ $isAnak ? 'bg-teal-500' : 'bg-blue-600' }} text-white flex items-center justify-center hover:opacity-90 transition cursor-pointer shrink-0 mr-3">
+                                        <svg id="iconPlay" class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                        <svg id="iconPause" class="w-4 h-4 fill-current hidden" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                                    </button>
+
+                                    <div id="audioTrack" class="flex-1 bg-line h-2.5 rounded-full relative mr-3 cursor-pointer">
+                                        <div id="audioProgress" class="{{ $isAnak ? 'bg-teal-500' : 'bg-blue-600' }} h-full w-0 rounded-full transition-all duration-100"></div>
+                                        <div id="audioMarker" class="absolute top-1/2 left-0 w-4 h-4 -translate-x-1/2 -translate-y-1/2 rounded-full {{ $isAnak ? 'bg-teal-500 ring-teal-100' : 'bg-blue-600 ring-blue-100' }} ring-4 shadow-sm transition-all duration-100"></div>
+                                    </div>
+
+                                    <span id="audioTime" class="text-[9px] font-mono text-muted shrink-0 min-w-14.5 text-right">0:00 / 0:00</span>
                                 </div>
-
-                                <span id="audioTime" class="text-[9px] font-mono text-muted shrink-0 min-w-[58px] text-right">0:00 / 0:00</span>
-                            </div>
+                            @else
+                                <div class="rounded-lg overflow-hidden border border-line bg-black flex items-center justify-center min-h-12 p-3">
+                                    <p class="text-white text-[11px] text-center leading-relaxed">
+                                        {{ $currentStep['audio_placeholder'] ?? 'Langkah ini tidak memiliki audio lafadz.' }}
+                                    </p>
+                                </div>
+                            @endif
                         </div>
 
                         <!-- SEKSYEN VIDEO PANDUAN -->

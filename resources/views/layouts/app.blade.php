@@ -26,5 +26,8 @@
         @yield('content')
     </main>
 
+    <!-- Memanggil Footer dari folder partials -->
+    @include('partials.footer')
+
 </body>
 </html>

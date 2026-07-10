@@ -22,7 +22,7 @@
         <div class="relative flex justify-center md:justify-end">
             <img src="{{ asset('images/kaabah.jpeg') }}"
                  alt="kaabah" 
-                 class="rounded-2xl shadow-xl w-full max-w-[540px] object-cover h-[320px] md:h-[380px] bg-slate-900">
+                 class="rounded-2xl shadow-xl w-full max-w-135 object-cover h-80 md:h-95 bg-slate-900">
         </div>
     </section>
 

@@ -17,8 +17,8 @@ class TuntunanController extends Controller
                 'desc_anak' => 'Niat itu di dalam hati kita ya, teman-teman! Bersiaplah dengan ikhlas karena Allah tanpa perlu diucapkan keras-keras.',
                 'image' => '/images/sholat/dewasa/niat.jpeg',
                 'image_anak' => '/images/sholat/anak/itidal.jpeg',
-                'audio' => '/audio/sholat/dewasa/niat.mp3',
-                'audio_anak' => '/audio/sholat/anak/niat.mp3',
+                'audio_placeholder' => 'Niat tidak memiliki lafadz yang wajib diucapkan.',
+                'audio_placeholder_anak' => 'Niat itu di dalam hati, nggak perlu diucapkan lho!',
                 'video_placeholder' => 'Niat tidak memiliki gerakan atau lafadz yang wajib diucapkan. Cukup dihadirkan dengan mantap dan ikhlas di dalam hati sebelum memulai sholat.',
                 'video_placeholder_anak' => 'Sst... niat itu rahasia antara kamu dan Allah 💛 Nggak ada gerakan khusus, cukup diniatkan dengan tenang di dalam hati ya!',
                 'arabic' => 'نَوَيْتُ الصَّلَاةَ لِلَّهِ تَعَالَى',
@@ -270,6 +270,9 @@ class TuntunanController extends Controller
             }
             if (isset($currentStep['video_placeholder_anak'])) {
                 $currentStep['video_placeholder'] = $currentStep['video_placeholder_anak'];
+            }
+            if (isset($currentStep['audio_placeholder_anak'])) {
+                $currentStep['audio_placeholder'] = $currentStep['audio_placeholder_anak'];
             }
             if (isset($currentStep['video_reference_url_anak'])) {
                 $currentStep['video_reference_url'] = $currentStep['video_reference_url_anak'];
