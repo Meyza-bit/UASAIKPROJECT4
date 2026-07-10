@@ -16,11 +16,6 @@
                 <h1 class="text-lg font-bold leading-tight text-blue-950 sm:text-2xl">
                     Tuntunan Tata Cara Sholat
                 </h1>
-                <div class="mt-1 text-xs leading-relaxed text-gray-500">
-                    <p>Nama: Kelompok 3 Sistem Informasi 06A</p>
-                    <p>Mata Kuliah: AIK 4</p>
-                    <p>Dosen: Dedy Susanto S.pd., M.M</p>
-                </div>
             </div>
         </div>
 
