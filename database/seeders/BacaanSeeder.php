@@ -11,6 +11,8 @@ class BacaanSeeder extends Seeder
 {
     public function run(): void
     {
+        // Teks Arab & Latin (dari HPT Muhammadiyah - Kitab Shalat).
+        // Dipakai untuk kedua mode (dewasa & anak) karena bacaan sholat identik.
         $bacaanList = [
             2  => [
                 'teks_arab' => 'اَللهُ أَكْبَرُ',
@@ -55,7 +57,7 @@ class BacaanSeeder extends Seeder
             12 => [
                 'teks_arab' => 'اَلتَّحِيَّاتُ لِلّهِ وَالصَّلَوَاتُ وَالطَّيِّبَاتُ، اَلسَّلَامُ عَلَيْكَ أَيُّهَا النَّبِيُّ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ، اَلسَّلَامُ عَلَيْنَا وَعَلَى عِبَادِ اللهِ الصَّالِحِيْنَ، أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ، اَللّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ',
                 'teks_latin' => 'Attahiyyaatu lillaahi washshalawaatu waththayyibaatu, assalaamu \'alaika ayyuhan nabiyyu wa rahmatullaahi wa barakaatuh, assalaamu \'alainaa wa \'alaa \'ibaadillaahish shaalihiin, asyhadu an laa ilaaha illallaah wa asyhadu anna muhammadan \'abduhu wa rasuuluh, Allaahumma shalli \'alaa Muhammad wa \'alaa aali Muhammad',
-                'terjemahan' => 'Segala penghormatan, salat, dan kebaikan bagi Allah. Keselamatan, rahmat, dan berkah Allah semoga tercurah kepadamu, wahai Nabi. Keselamatan semoga tercurah kepada kami dan hamba-hamba Allah yang saleh. Aku bersaksi tiada Tuhan selain Allah dan aku bersaksi Muhammad adalah hamba dan utusan-Nya. Ya Allah, limpahkanlah rahmat kepada Nabi Muhammad dan keluarganya. (CATATAN: redaksi shalawat ini perlu dicek ulang ke buku resmi HPT Kitab Shalat untuk memastikan kelengkapannya — lihat catatan di bawah)',
+                'terjemahan' => 'Segala penghormatan, salat, dan kebaikan bagi Allah. Keselamatan, rahmat, dan berkah Allah semoga tercurah kepadamu, wahai Nabi. Keselamatan semoga tercurah kepada kami dan hamba-hamba Allah yang saleh. Aku bersaksi tiada Tuhan selain Allah dan aku bersaksi Muhammad adalah hamba dan utusan-Nya. Ya Allah, limpahkanlah rahmat kepada Nabi Muhammad dan keluarganya. (CATATAN: redaksi shalawat perlu dicek ulang ke buku HPT Kitab Shalat)',
             ],
             13 => [
                 'teks_arab' => 'السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ',
@@ -63,12 +65,27 @@ class BacaanSeeder extends Seeder
                 'terjemahan' => 'Semoga keselamatan, rahmat, dan keberkahan Allah tercurah atasmu.',
             ],
         ];
- 
+
+        // Terjemahan versi sederhana untuk mode ANAK
+        $terjemahanAnak = [
+            2  => 'Allah Maha Besar.',
+            3  => 'Ya Allah, jauhkan aku dari kesalahan dan bersihkan hatiku seperti kain putih yang bersih.',
+            5  => 'Maha Suci Allah. Aku memuji dan memohon ampun kepada-Nya.',
+            6  => 'Allah mendengar orang yang memuji-Nya. Ya Allah, bagi-Mu segala puji.',
+            7  => 'Maha Suci Allah. Aku memuji dan memohon ampun kepada-Nya.',
+            8  => 'Ya Allah, ampunilah aku, sayangilah aku, dan berilah aku rezeki.',
+            9  => 'Maha Suci Allah. Aku memuji dan memohon ampun kepada-Nya.',
+            11 => 'Segala penghormatan untuk Allah. Aku bersaksi tiada Tuhan selain Allah, dan Nabi Muhammad utusan Allah.',
+            12 => 'Segala penghormatan untuk Allah. Aku bersaksi tiada Tuhan selain Allah dan Nabi Muhammad utusan-Nya. Ya Allah, berikanlah rahmat kepada Nabi Muhammad.',
+            13 => 'Semoga keselamatan dan rahmat Allah tercurah untukmu.',
+        ];
+
+        // Simpan bacaan untuk mode DEWASA (id_kategori 1)
         foreach ($bacaanList as $urutanGerakan => $isi) {
             $gerakan = Gerakan::where('urutan', $urutanGerakan)
-                ->where('id_kategori', 1) // 1 = kategori dewasa
+                ->where('id_kategori', 1)
                 ->first();
- 
+
             if ($gerakan) {
                 Bacaan::create([
                     'id_gerakan' => $gerakan->id,
@@ -76,7 +93,26 @@ class BacaanSeeder extends Seeder
                     'teks_arab' => $isi['teks_arab'],
                     'teks_latin' => $isi['teks_latin'],
                     'terjemahan' => $isi['terjemahan'],
-                    'audio_url' => null, // isi setelah file MP3 tersedia
+                    'audio_url' => null,
+                    'sumber' => 'Himpunan Putusan Tarjih (HPT) Muhammadiyah - Kitab Shalat',
+                ]);
+            }
+        }
+
+        // Simpan bacaan untuk mode ANAK (id_kategori 2) — terjemahan disederhanakan
+        foreach ($bacaanList as $urutanGerakan => $isi) {
+            $gerakan = Gerakan::where('urutan', $urutanGerakan)
+                ->where('id_kategori', 2)
+                ->first();
+
+            if ($gerakan) {
+                Bacaan::create([
+                    'id_gerakan' => $gerakan->id,
+                    'urutan' => 1,
+                    'teks_arab' => $isi['teks_arab'],
+                    'teks_latin' => $isi['teks_latin'],
+                    'terjemahan' => $terjemahanAnak[$urutanGerakan] ?? $isi['terjemahan'],
+                    'audio_url' => null,
                     'sumber' => 'Himpunan Putusan Tarjih (HPT) Muhammadiyah - Kitab Shalat',
                 ]);
             }
