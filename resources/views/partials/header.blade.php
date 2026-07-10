@@ -40,18 +40,21 @@
                 </a>
             </nav>
 
+            <!-- Toggle Mode -->
             <div class="flex w-fit items-center rounded-full border border-gray-200 bg-gray-100 p-1 text-xs font-semibold">
+                <!-- Mode Dewasa: Tetap Biru Tua -->
                 <a
                     href="{{ route('sholat.step', ['id' => $activeStepId, 'mode' => 'dewasa']) }}"
                     class="rounded-full px-4 py-1.5 transition {{ $activeMode === 'dewasa' ? 'bg-blue-950 text-white shadow-sm' : 'text-gray-500 hover:text-gray-950' }}"
                 >
                     Dewasa
                 </a>
+                <!-- Mode Anak-anak: Diubah ke Warna Oranye saat Aktif -->
                 <a
                     href="{{ route('sholat.step', ['id' => $activeStepId, 'mode' => 'anak-anak']) }}"
-                    class="rounded-full px-4 py-1.5 transition {{ $activeMode === 'anak-anak' ? 'bg-blue-950 text-white shadow-sm' : 'text-gray-500 hover:text-gray-950' }}"
+                    class="rounded-full px-4 py-1.5 transition {{ $activeMode === 'anak-anak' ? 'bg-orange-500 text-white shadow-sm' : 'text-gray-500 hover:text-orange-600' }}"
                 >
-                    Anak-anak
+                    Anak-anak ✨
                 </a>
             </div>
         </div>

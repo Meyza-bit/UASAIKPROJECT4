@@ -16,9 +16,6 @@
             <p class="text-gray-600 leading-relaxed max-w-md text-sm">
                 Hadir sebagai pendamping setia dalam menyempurnakan ibadah sholat Anda dengan panduan yang interaktif dan mendalam.
             </p>
-            <a href="/tuntunan" class="inline-block bg-blue-950 hover:bg-blue-900 text-white font-medium text-sm px-6 py-3 rounded-md transition shadow-md">
-                Lihat Panduan
-            </a>
         </div>
         
         <!-- Gambar Kanan (Visual Masjid Nabawi Seni Biru Islami - Adem & Pasti Muncul Offline) -->
